@@ -22,9 +22,12 @@
             <td>{{ order.name }}</td>
             <td>{{ order.description }}</td>
             <td>
-              <a href="{% url 'service:delete_order' pk=order.id %}" class="btn link-to-page">
-              🗑
-              </a>
+              <form method="post" action="{% url 'service:delete_order' pk=order.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn link-to-page">
+                  🗑
+                </button>
+              </form>
             </td>
           </tr>
         {% endfor %}
