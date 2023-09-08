@@ -72,3 +72,5 @@ docker-compose up --build
 username = admin
 password = admin123123
 ```
+
+Change in users models telegram_id field with your telegram id for test teelgram notification
