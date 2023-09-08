@@ -73,4 +73,6 @@ username = admin
 password = admin123123
 ```
 
+For other users password `user123`
+
 Change in users models telegram_id field with your telegram id for test teelgram notification
