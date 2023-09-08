@@ -7,16 +7,13 @@ from producer_consumer.settings import TELEGRAM_TOKEN
 from service.models import Order, Employee
 
 
-def send_notification(message: str, CHAT_ID) -> None:
+def send_notification(message: str, chat_id: int) -> None:
     """
     Sends a message to user
     """
-    if CHAT_ID:
-        url = (
-            f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/"
-            f"sendMessage?chat_id={CHAT_ID}&text={message}"
-        )
-        requests.get(url)
+    if chat_id:
+        url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
+        requests.get(url, params={"chat_id": chat_id, "text": message})
 
 
 def send_delete_order_text(order: Order, employee: Employee | User) -> None:
