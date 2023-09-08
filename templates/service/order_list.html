@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <header class="header">
+  <div class="page-header relative">
+    <div class="">
+      {% if order_list %}
+        <h1>
+        Замовлення
+        </h1>
+        <table class="table">
+          <tr>
+            <th>ID</th>
+            <th>Назва</th>
+            <th>Замовлення</th>
+            <th></th>
+          </tr>
+        {% for order in order_list %}
+          <tr>
+            <td>{{ order.id }}</td>
+            <td>{{ order.name }}</td>
+            <td>{{ order.description }}</td>
+            <td>
+              <a href="{% url 'service:delete_order' pk=order.id %}" class="btn link-to-page">
+              🗑
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+      <p>There are no orders yet.</p>
+    {% endif %}
+    </div>
+  </div>
+  </header>
+
+{% endblock %}
+
